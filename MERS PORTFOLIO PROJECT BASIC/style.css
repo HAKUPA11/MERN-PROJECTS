@@ -117,3 +117,158 @@ body {
         font-size: 2rem;
     }
 }
+
+
+/* --- SHARED UTILITIES --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #1d4ed8;
+}
+
+/* --- ABOUT PAGE STYLES --- */
+.about-section {
+    padding: 4rem 0;
+    background: white;
+}
+
+.about-content {
+    display: flex; /* Flexbox requirement */
+    align-items: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.about-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Responsive About Page */
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* --- PROJECTS PAGE (GRID GALLERY) --- */
+.projects-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.gallery-grid {
+    display: grid; /* Grid requirement */
+    /* Creates a responsive grid automatically */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.project-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative; /* Requirement: Position Relative for parent */
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Requirement: Absolute Badge */
+.badge {
+    position: absolute; /* Requirement: Position Absolute */
+    top: 10px;
+    right: 10px;
+    background: #ff4757;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+.card-image {
+    height: 200px;
+    background-color: #ddd; /* Placeholder color */
+    background-image: linear-gradient(45deg, #ccc 25%, transparent 25%), 
+                      linear-gradient(-45deg, #ccc 25%, transparent 25%), 
+                      linear-gradient(45deg, transparent 75%, #ccc 75%), 
+                      linear-gradient(-45deg, transparent 75%, #ccc 75%);
+    background-size: 20px 20px;
+}
+
+.card-info {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+/* --- CONTACT PAGE STYLES --- */
+.contact-section {
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.form-container {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+/* Requirement: :focus pseudo-class */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(37, 99, 235, 0.2);
+}
+
+.submit-btn {
+    width: 100%;
+}
