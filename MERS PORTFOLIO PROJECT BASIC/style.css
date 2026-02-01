@@ -1,0 +1,119 @@
+/* Requirement: :root Variables */
+:root {
+    --primary-color: #2563eb;
+    --text-color: #333;
+    --bg-color: #f4f4f4;
+    --nav-height: 60px;
+}
+
+/* Requirement: Box Model */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* Requirement: Position (Sticky) & Flexbox for Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    background: white;
+    height: var(--nav-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem; /* Requirement: Responsive Units */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    /* Requirement: Transitions */
+    transition: color 0.3s ease;
+}
+
+/* Requirement: Pseudo-classes (:hover) */
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* Requirement: Hero Section & Flexbox */
+.hero {
+    height: calc(100vh - var(--nav-height)); /* Requirement: vh/calc */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-color);
+    text-align: center;
+}
+
+/* Requirement: Animations */
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.hero-content {
+    animation: slideUp 1s ease-out;
+}
+
+/* Requirement: Grid Layout for Skills/Gallery */
+.skills {
+    padding: 4rem 2rem;
+}
+
+.skills-grid {
+    display: grid;
+    /* Responsive Grid: Auto-fit makes it responsive without media queries mostly */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.skill-card {
+    background: white;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    /* Requirement: Hover Effects */
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Requirement: Media Queries (Mobile/Tablet) */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+    
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
